@@ -2,7 +2,7 @@ import { useContext, createContext, useReducer } from 'react'
 import AppReducer from './AppReducer.jsx'
 
 const initialState = {
-  transactions: []
+  transactions: [1, 2, 3, 4]
 }
 
 export const Context = createContext(initialState)
