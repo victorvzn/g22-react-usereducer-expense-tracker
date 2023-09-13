@@ -1,13 +1,21 @@
 import { useState } from "react"
+import { useGlobalState } from "../../context/GlobalState"
 
 const TransactionForm = () => {
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState(0)
 
+  const { addTransaction } = useGlobalState()
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Lógica para guardar las transacciones
+    addTransaction({
+      id: crypto.randomUUID(),
+      description,
+      amount: Number(amount)
+    })
     
     setDescription('')
     setAmount(0)
