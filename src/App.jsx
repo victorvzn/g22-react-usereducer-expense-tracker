@@ -1,3 +1,5 @@
+import { TbChartPieFilled } from "react-icons/tb";
+
 function App() {
   return (
     <>
@@ -41,10 +43,22 @@ function App() {
                 </button>
               </form>
             </section>
-            <section className="flex-1 ">
-              <div className="py-4">Estadisticas</div>
-              <div className="py-4">lista de ingresos/egresos</div>
+
+            <section className="flex-1 flex flex-col">
+              <div className="bg-zinc-900 p-4 my-2 rounded-md">
+                <div className="h-full flex items-center justify-center w-full flex-col">
+                  <TbChartPieFilled className="text-6xl" />
+                  <h1 className="text-2xl font-semibold my-2">No data yet</h1>
+                </div>
+              </div>
+
+              <div className="bg-zinc-900 p-4 my-2 rounded-md">
+                <div className="h-full flex items-center justify-center w-full flex-col">
+                  <h1 className="text-2xl font-semibold my-2">There are no transactions</h1>
+                </div>
+              </div>
             </section>
+
           </main>
         </div>
       </div>
