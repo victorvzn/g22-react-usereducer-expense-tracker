@@ -8,6 +8,19 @@ const reducer = (state, action) => {
     }
   }
 
+  if (action.type === 'REMOVE_TRANSACTION') {
+    const id = action.payload
+
+    const newTransactions = state.transactions.filter(
+      transaction => transaction.id !== id
+    )
+
+    return {
+      ...state,
+      transactions: newTransactions
+    }
+  }
+
   return state
 }
 

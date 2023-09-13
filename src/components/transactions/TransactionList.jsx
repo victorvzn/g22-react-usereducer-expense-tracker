@@ -3,17 +3,17 @@ import { useGlobalState } from "../../context/GlobalState"
 import { TbTrash } from "react-icons/tb"
 
 const TransactionList = () => {
-  const { transactions } = useGlobalState()
+  const { transactions, removeTransaction } = useGlobalState()
 
-  // if (transactions.length === 0) {
-  //   return (
-  //     <div className="bg-zinc-900 p-4 my-2 rounded-md">
-  //       <div className="h-full flex items-center justify-center w-full flex-col">
-  //         <h1 className="text-2xl font-semibold my-2">There are no transactions</h1>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  if (transactions.length === 0) {
+    return (
+      <div className="bg-zinc-900 p-4 my-2 rounded-md">
+        <div className="h-full flex items-center justify-center w-full flex-col">
+          <h1 className="text-2xl font-semibold my-2">There are no transactions</h1>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-zinc-900 p-4 my-2 rounded-md">
@@ -38,6 +38,7 @@ const TransactionList = () => {
                   </span>
                   <button
                     className="font-bold rounded-md ml-2"
+                    onClick={() => removeTransaction(transaction.id)}
                   >
                     <TbTrash />
                   </button>
